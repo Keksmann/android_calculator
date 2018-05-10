@@ -10,10 +10,13 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView result_view;
     private String display;
-    private int first_number;
-    private int second_number;
-    private int result_number;
-    private String[] states;
+    private float first_number;
+    private float second_number;
+    private float result_number;
+    private String current_state;   // Das ist keine schöne Lösung für eine State Machine.
+    private Boolean isNeg;
+
+    // TODO Klammern implementieren
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +27,14 @@ public class MainActivity extends AppCompatActivity {
         result_view = (TextView) (findViewById(R.id.textView));
         result_number = 0;
         display = "";
-        states = new String[5];
-        states[0] = "clear";
-        states[1] = "add";
-        states[2] = "sub";
-        states[3] = "mult";
-        states[4] = "div";
+        current_state = "clear";
+        isNeg = false;
     }
 
     public void set_number(View v){
+        if(current_state == "result"){
+            resetDisplay();
+        }
         switch(v.getId()){      // Switch-Case ist irgendwie keine schöne Lösung
             case R.id.button_0:
                 display += 0;
@@ -68,23 +70,86 @@ public class MainActivity extends AppCompatActivity {
         result_view.setText(display);
     }
 
-    public void calc_plus(View v){
-        first_number = Integer.parseInt(display);
+    public void set_decimal(View v){
+        display += ".";
+        result_view.setText(display);
+    }
+
+    public void calc_add(View v){
+        first_number = Float.parseFloat(display);
+        current_state = "add";
+        resetDisplay();
+    }
+
+    public void calc_sub(View v){
+        first_number = Float.parseFloat(display);
+        current_state = "sub";
+        resetDisplay();
+    }
+
+    public void calc_mult(View v){
+        first_number = Float.parseFloat(display);
+        current_state = "mult";
+        resetDisplay();
+    }
+
+    public void calc_div(View v){
+        first_number = Float.parseFloat(display);
+        current_state = "div";
+        resetDisplay();
+    }
+
+    private void resetDisplay(){
         display = "";
+        isNeg = false;
         result_view.setText(display);
     }
 
     public void calc_equals(View v){
-        second_number = Integer.parseInt(display);
-        // TODO hier state abfragen
+        second_number = Float.parseFloat(display);
 
-        result_number = first_number + second_number;
-        display = Integer.toString(result_number);
+        if(current_state == "add"){
+            result_number = first_number + second_number;
+        }
+        else if(current_state == "sub"){
+            result_number = first_number - second_number;
+        }
+        else if(current_state == "mult"){
+            result_number = first_number * second_number;
+        }
+        else if(current_state == "div"){
+            result_number = first_number / second_number;
+        }
+
+        display = Float.toString(result_number);
         result_view.setText(display);
+        current_state = "result";
     }
 
     public void clear_screen(View v){
-        display = "";
+        resetDisplay();
+
+        first_number = 0;
+        second_number = 0;
+        current_state = "clear";
+    }
+
+    public void del_number(View v){
+        display = display.substring(0, display.length() -1 );
+        result_view.setText(display);
+        // TODO Methode testen. Das buggt noch rum.
+    }
+
+    public void set_neg(View v){
+        // Vorzeichen der aktuellen Zahl ändern.
+        if(isNeg == false) {
+            display = "-" + display;
+        }
+        else if(isNeg == true){
+            display = display.substring(1, display.length());
+        }
+
+        isNeg = !isNeg;
         result_view.setText(display);
     }
 }

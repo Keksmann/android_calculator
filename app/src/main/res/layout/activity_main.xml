@@ -36,6 +36,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="calc_div"
                 android:text="@string/button_div" />
 
             <Button
@@ -43,6 +44,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="calc_mult"
                 android:text="@string/button_mult" />
 
             <Button
@@ -50,6 +52,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="del_number"
                 android:text="@string/button_del" />
         </TableRow>
 
@@ -86,6 +89,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="calc_sub"
                 android:text="@string/button_minus" />
 
         </TableRow>
@@ -121,7 +125,7 @@
             <Button
                 android:id="@+id/button_plus"
                 style="?android:attr/borderlessButtonStyle"
-                android:onClick="calc_plus"
+                android:onClick="calc_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/button_plus" />
@@ -182,6 +186,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="set_decimal"
                 android:text="@string/button_decimal" />
 
             <Button
@@ -189,6 +194,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="set_neg"
                 android:text="@string/button_neg" />
 
             <Button
