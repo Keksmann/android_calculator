@@ -4,19 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_img_small"
     tools:context=".MainActivity">
 
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="351dp"
-        android:layout_height="243dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="310dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent">
 
         <TableRow
@@ -29,7 +31,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="clear_screen"
-                android:text="@string/button_c" />
+                android:text="@string/button_c"
+                android:textSize="30dp" />
 
             <Button
                 android:id="@+id/button_div"
@@ -37,7 +40,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="calc_div"
-                android:text="@string/button_div" />
+                android:text="@string/button_div"
+                android:textSize="30dp" />
 
             <Button
                 android:id="@+id/button_mult"
@@ -45,7 +49,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="calc_mult"
-                android:text="@string/button_mult" />
+                android:text="@string/button_mult"
+                android:textSize="30dp" />
 
             <Button
                 android:id="@+id/button_del"
@@ -53,7 +58,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="del_number"
-                android:text="@string/button_del" />
+                android:text="@string/button_del"
+                android:textSize="30dp" />
         </TableRow>
 
         <TableRow
@@ -65,6 +71,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:onClick="set_number"
                 android:text="@string/button_7"
+                android:textSize="30dp"
                 tools:layout_editor_absoluteX="131dp"
                 tools:layout_editor_absoluteY="155dp" />
 
@@ -73,6 +80,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:onClick="set_number"
                 android:text="@string/button_8"
+                android:textSize="30dp"
                 tools:layout_editor_absoluteX="206dp"
                 tools:layout_editor_absoluteY="155dp" />
 
@@ -81,6 +89,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:onClick="set_number"
                 android:text="@string/button_9"
+                android:textSize="30dp"
                 tools:layout_editor_absoluteX="206dp"
                 tools:layout_editor_absoluteY="94dp" />
 
@@ -90,7 +99,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="calc_sub"
-                android:text="@string/button_minus" />
+                android:text="@string/button_minus"
+                android:textSize="30dp" />
 
         </TableRow>
 
@@ -103,6 +113,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:onClick="set_number"
                 android:text="@string/button_4"
+                android:textSize="30dp"
                 tools:layout_editor_absoluteX="131dp"
                 tools:layout_editor_absoluteY="94dp" />
 
@@ -111,6 +122,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:onClick="set_number"
                 android:text="@string/button_5"
+                android:textSize="30dp"
                 tools:layout_editor_absoluteX="131dp"
                 tools:layout_editor_absoluteY="33dp" />
 
@@ -119,16 +131,18 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:onClick="set_number"
                 android:text="@string/button_6"
+                android:textSize="30dp"
                 tools:layout_editor_absoluteX="53dp"
                 tools:layout_editor_absoluteY="155dp" />
 
             <Button
                 android:id="@+id/button_plus"
                 style="?android:attr/borderlessButtonStyle"
-                android:onClick="calc_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button_plus" />
+                android:onClick="calc_add"
+                android:text="@string/button_plus"
+                android:textSize="30dp" />
 
         </TableRow>
 
@@ -141,6 +155,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:onClick="set_number"
                 android:text="@string/button_1"
+                android:textSize="30dp"
                 tools:layout_editor_absoluteX="53dp"
                 tools:layout_editor_absoluteY="33dp" />
 
@@ -149,6 +164,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:onClick="set_number"
                 android:text="@string/button_2"
+                android:textSize="30dp"
                 tools:layout_editor_absoluteX="206dp"
                 tools:layout_editor_absoluteY="33dp" />
 
@@ -157,6 +173,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:onClick="set_number"
                 android:text="@string/button_3"
+                android:textSize="30dp"
                 tools:layout_editor_absoluteX="53dp"
                 tools:layout_editor_absoluteY="94dp" />
 
@@ -165,7 +182,8 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button_brackets" />
+                android:text="@string/button_brackets"
+                android:textSize="30dp" />
 
         </TableRow>
 
@@ -179,7 +197,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="set_number"
-                android:text="@string/button_0" />
+                android:text="@string/button_0"
+                android:textSize="30dp" />
 
             <Button
                 android:id="@+id/button_decimal"
@@ -187,7 +206,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="set_decimal"
-                android:text="@string/button_decimal" />
+                android:text="@string/button_decimal"
+                android:textSize="30dp" />
 
             <Button
                 android:id="@+id/button_neg"
@@ -195,7 +215,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="set_neg"
-                android:text="@string/button_neg" />
+                android:text="@string/button_neg"
+                android:textSize="30dp" />
 
             <Button
                 android:id="@+id/button_equals"
@@ -203,14 +224,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="calc_equals"
-                android:text="@string/button_equals" />
+                android:text="@string/button_equals"
+                android:textSize="30dp" />
         </TableRow>
 
     </TableLayout>
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="369dp"
+        android:layout_width="344dp"
         android:layout_height="145dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -218,6 +240,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:gravity="end"
+        android:textSize="30dp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.03"

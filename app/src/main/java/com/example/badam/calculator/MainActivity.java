@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.util.Log;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private Boolean isNeg;
 
     // TODO Klammern implementieren
+    // TODO add multiline support
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +34,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void set_number(View v){
-        if(current_state == "result"){
+        if(current_state.equals("result")){
             resetDisplay();
+            current_state = "clear";
         }
         switch(v.getId()){      // Switch-Case ist irgendwie keine schöne Lösung
             case R.id.button_0:
@@ -108,22 +111,36 @@ public class MainActivity extends AppCompatActivity {
     public void calc_equals(View v){
         second_number = Float.parseFloat(display);
 
-        if(current_state == "add"){
+        if(current_state.equals("add")){
             result_number = first_number + second_number;
         }
-        else if(current_state == "sub"){
+        else if(current_state.equals("sub")){
             result_number = first_number - second_number;
         }
-        else if(current_state == "mult"){
+        else if(current_state.equals("mult")){
             result_number = first_number * second_number;
         }
-        else if(current_state == "div"){
+        else if(current_state.equals("div")){
             result_number = first_number / second_number;
         }
 
         display = Float.toString(result_number);
+        display = cut_decimal_zero(display);
         result_view.setText(display);
         current_state = "result";
+    }
+
+    public String cut_decimal_zero(String display){
+        int count_chars = display.length();
+        String last_symbols = display.substring(count_chars - 2, count_chars);
+        String ret_display;
+        if(last_symbols.equals(".0")){
+            ret_display = display.substring(0, count_chars - 2);
+        }
+        else{
+            ret_display = display;
+        }
+        return ret_display;
     }
 
     public void clear_screen(View v){
@@ -135,17 +152,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void del_number(View v){
-        display = display.substring(0, display.length() -1 );
+        display = display.substring(0, display.length() - 1);
         result_view.setText(display);
         // TODO Methode testen. Das buggt noch rum.
     }
 
     public void set_neg(View v){
         // Vorzeichen der aktuellen Zahl ändern.
-        if(isNeg == false) {
+        if(!isNeg) {
             display = "-" + display;
         }
-        else if(isNeg == true){
+        else if(isNeg){
             display = display.substring(1, display.length());
         }
 
