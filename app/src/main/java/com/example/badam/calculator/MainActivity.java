@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO Klammern implementieren
     // TODO add multiline support
+    // TODO Rechenweg und Verlauf anzeigen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
